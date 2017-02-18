@@ -15,10 +15,10 @@ $(document).ready(function () {
       console.log(data);
       console.log('Ajax is done loading the page');
       $('#step3456').append(data);
-    }).fail(function () {
-      $('#step3456').append(data)
+    }).fail(function (data) {
+      $('#step345').append(data);
       console.log('Hey! The request to load this page has failed');
-    }).always(function () {
+    }).always(function (data) {
       console.log('The request is finished');
     })
   });
@@ -36,10 +36,20 @@ $(document).ready(function () {
     $.ajax({
       url: 'http://first-ajax-api.herokuapp.com/time',
       method: 'GET',
-      data: { timezone: 'Pacific/Honolulu' }
+      data: { timezone: 'Pacific/Honolulu' },
     }).done(function (data) {
       console.log(data);
       $('#step8').append(data);
+    });
+  });
+  $('#step9 button').click(function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      dataType: 'html',
+    }).done(function (data) {
+      console.log(data);
+      $('#thislist').append(data)
     });
   });
 });
