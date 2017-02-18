@@ -29,6 +29,17 @@ $(document).ready(function () {
       dataType: 'text'
     }).done(function (data) {
       console.log(data);
+      $('#step7').append(data)
+    });
+  });
+  $('#step8 button').click(function() {
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      data: { timezone: 'Pacific/Honolulu' }
+    }).done(function (data) {
+      console.log(data);
+      $('#step8').append(data);
     });
   });
 });
